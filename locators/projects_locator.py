@@ -1,9 +1,9 @@
 class ProjectsLocator:
-    projects_block = {
+    projects_main = {
         # 'css': 'body > div:nth-child(4) > div > div > div > div > div'
-        'class': '.projects-main'
+        'class': 'projects-main'
     }
 
-    # project = {
-    #     'css': projects_block['css'] + ' > div.projects-main__items.row > div:nth-child(1)'
-    # }
+    project_item_title = {
+        'class': 'projects-main__item-title'
+    }

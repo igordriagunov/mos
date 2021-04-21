@@ -39,5 +39,8 @@ def browser(request):
 def load_env():
     env = json.load(open('./env/env.json'))
     base_url = env['base_url']
+    projects_url = env['projects_url']
 
-    return base_url
+    return base_url, projects_url
+
+
