@@ -15,8 +15,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 #     return request.config.getoption("--url")
 
 
-@pytest.fixture
-def browser(request):
+@pytest.fixture(scope='module')
+def browser():
     """ Фикстура инициализации браузера """
     # ignore SSL certificate
 
@@ -38,9 +38,8 @@ def browser(request):
 @pytest.fixture(scope='module')
 def load_env():
     env = json.load(open('./env/env.json'))
-    base_url = env['base_url']
+    main_url = env['main_url']
     projects_url = env['projects_url']
+    project_blago_url = env['project_blago_url']
 
-    return base_url, projects_url
-
-
+    return main_url, projects_url, project_blago_url
