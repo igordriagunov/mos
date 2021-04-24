@@ -7,3 +7,5 @@ class ProjectsLocator:
     project_item_title = {
         'class': 'projects-main__item-title'
     }
+
+    project_blago_link = {'xpath': '//*[contains(text(), " Благотворительный сервис mos.ru")]'}

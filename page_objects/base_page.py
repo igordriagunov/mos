@@ -1,17 +1,9 @@
-import json
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-# from common.Alert import Alert
-
-
-# def __init__(self, driver):
-#     self.driver = driver
-# self.alert = Alert(self.driver)
 class BasePage:
 
     def __init__(self, browser):
@@ -78,7 +70,7 @@ class BasePage:
         return self.browser.find_elements(by, selector)
 
     def click(self, selector):
-        ActionChains(self.browser).move_to_element(self.find_element(self.browser, selector)).click().perform()
+        ActionChains(self.browser).move_to_element(self.find_element(selector)).click().perform()
 
     def input_text(self, selector, value):
         element = self.find_element_and_click(self.browser, selector)
@@ -93,4 +85,4 @@ class BasePage:
         return self.browser.find_element(selector).text
 
     def move_cursor_to_element(self, selector):
-        ActionChains(self.browser).move_to_element(self.find_element(self.browser, selector)).perform()
+        ActionChains(self.browser).move_to_element(self.find_element(selector)).perform()

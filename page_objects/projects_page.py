@@ -1,6 +1,7 @@
 import json
 
 from page_objects.base_page import BasePage
+from page_objects.project_blago_page import ProjectBlagoPage
 from locators import ProjectsLocator
 
 
@@ -48,3 +49,7 @@ class ProjectsPage(BasePage):
         assert checking_match_in_lists is True
 
         return ProjectsPage(self.browser)
+
+    def click_to_link_goto_project_blago(self):
+        self.find_element_and_click(ProjectsLocator.project_blago_link)
+        return ProjectBlagoPage(self.browser)
