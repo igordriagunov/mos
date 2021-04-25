@@ -7,4 +7,4 @@ class MainLocator:
         'css': '#mos_footer > footer > div.Footer_inside__QjbY5 > div.Footer_main__N7GiP > nav > div:nth-child(7) > a.Menu_sectionTitle__2Hlbb.link_footerPrimary__23ZtZ.link_link__29xFl.link_focusable__lMy2y'
     }
 
-
+    calendar = {'id': 'afishaId'}

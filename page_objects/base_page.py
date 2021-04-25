@@ -48,6 +48,10 @@ class BasePage:
             by = By.CLASS_NAME
             selector = selector['class']
 
+        elif 'id' in selector.keys():
+            by = By.ID
+            selector = selector['id']
+
         return self.browser.find_element(by, selector)
 
     def find_elements(self, selector: dict, link_text: str = None):

@@ -53,3 +53,6 @@ class ProjectsPage(BasePage):
     def click_to_link_goto_project_blago(self):
         self.find_element_and_click(ProjectsLocator.project_blago_link)
         return ProjectBlagoPage(self.browser)
+
+
+

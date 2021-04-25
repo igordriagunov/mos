@@ -1,14 +1,17 @@
 import time
 
-from locators import ProjectBlagoLocator
+import pytest
+
+from locators import ProjectBlagoLocator, ProjectCovidLocator, ProjectsLocator, MainLocator
 from page_objects.main_page import MainPage
 from page_objects.project_blago_page import ProjectBlagoPage
 from page_objects.projects_page import ProjectsPage
+from page_objects.project_covid_page import ProjectCovidPage
 
 
 # @pytest.mark.skip
 def test_open_main_page_go_to_projects(browser, load_env):
-    main_url, projects_url, project_blago_url = load_env
+    main_url, projects_url, project_blago_url, project_covid_url = load_env
 
     MainPage(browser) \
         .open_main_page(main_url) \
@@ -21,7 +24,7 @@ def test_open_main_page_go_to_projects(browser, load_env):
 
 
 def test_check_projects_list(browser, load_env):
-    main_url, projects_url, project_blago_url = load_env
+    main_url, projects_url, project_blago_url, project_covid_url = load_env
 
     project = ProjectsPage(browser) \
         .check_projects_count() \
@@ -34,7 +37,7 @@ def test_check_projects_list(browser, load_env):
 
 
 def test_check_blago_page(browser, load_env):
-    main_url, projects_url, project_blago_url = load_env
+    main_url, projects_url, project_blago_url, project_covid_url = load_env
 
     # объект класса любой страницы наследуется от BasePage и можно обращаться к "базовым" функциям
     # получается гибкая конструкция
@@ -48,3 +51,18 @@ def test_check_blago_page(browser, load_env):
     ProjectBlagoPage(browser).move_cursor_to_element(ProjectBlagoLocator.want_to_help_button)
     time.sleep(2)
     ProjectsPage(browser).open_page(projects_url)
+
+
+# @pytest.mark.skip
+def test_check_covid_page(browser, load_env):
+    main_url, projects_url, project_blago_url, project_covid_url = load_env
+
+    ProjectsPage(browser).find_element_and_click(ProjectsLocator.project_covid_link)
+    ProjectCovidPage(browser).check_elements() \
+        .move_cursor_to_element(ProjectCovidLocator.covid_block)
+    MainPage(browser).open_main_page(main_url)
+
+
+def test_calendar(browser):
+    MainPage(browser).find_element(MainLocator.calendar)
+    MainPage(browser).move_cursor_to_element(MainLocator.calendar)

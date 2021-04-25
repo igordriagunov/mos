@@ -41,5 +41,6 @@ def load_env():
     main_url = env['main_url']
     projects_url = env['projects_url']
     project_blago_url = env['project_blago_url']
+    project_covid_url = env['project_covid_url']
 
-    return main_url, projects_url, project_blago_url
+    return main_url, projects_url, project_blago_url, project_covid_url

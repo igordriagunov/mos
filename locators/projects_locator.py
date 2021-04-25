@@ -9,3 +9,4 @@ class ProjectsLocator:
     }
 
     project_blago_link = {'xpath': '//*[contains(text(), " Благотворительный сервис mos.ru")]'}
+    project_covid_link = {'xpath': '//*[contains(text(), " Коронавирус: официальная информация")]'}
